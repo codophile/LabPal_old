@@ -1,0 +1,119 @@
+<assignment>
+	<name>Nomenclature Practice (Additional challenge problems)</name>
+	<description><p>This assignment is not graded but you are encouraged to practice naming compounds from the formulae and vice-versa to improve your skills in nomenclature.</p></description>
+	<info></info>
+	<type>1</type>
+	<options>{"quiz":{"pages":[]}}</options>
+	<question>
+		<type>1</type>
+		<name>Naming practice</name>
+		<description><p><span style="font-size: 14.4px;">Without consulting a text or the Internet, write</span><span style="font-size: 14.4px;">&nbsp;t</span>he name for $\ce{##form2##}$. Practice more by pressing the "Change Problem Values" button.<br></p></description>
+		<deferred>0</deferred>
+		<options>{"completionDisplay":true}</options>
+		<extra>
+			<available>false</available>
+			<newValues>true</newValues>
+			<text></text>
+		</extra>
+		<variable>
+			<name>nam_arr</name>
+			<title></title>
+			<description>array("calcium hydroxide","silver phosphate","silver thiocyanate","ammonium sulfate","zinc sulfide","cadmium cyanide","barium iodate","copper(I) sulfite","copper(I) iodide","iron(III) nitrate","iron(II) oxalte","manganese(II) carbonate", "manganese(III) hydroxide", "tin(IV) bromide", "lead(II) permanganate", "sodium silicate", "aluminum perchlorate", "mercury(II) acetate", "cesium iodate", "strontium hypochlorite", "barium phosphate", "berylium nitride", "magnesium hydrogen carbonate", "antimony(III) nitrate", "phosphrous pentachloride", "carbon tetrabromide", "bismuth(III) cyanate", "aluminum bromate", "mercurous phosphate", "bismuth(III) oxide", "strontium hydrogen carbonate", "chromium(III) iodate", "carbon tetrachloride", "tin(IV) chloride", "nickel(II) perbromate", "dichlorine heptoxide", "antimony(III) sulfide", "selenium dioxide", "silver oxalate", "tin(II) azide", "zinc phosphide", "copper(II) silicate", "sulfur hexafluoride", "lithium arsenide")</description>
+			<type>3</type>
+			<choices>[]</choices>
+		</variable>
+		<variable>
+			<name>for_arr</name>
+			<title></title>
+			<description>array("Ca(OH)2","Ag3PO4","AgSCN","(NH4)2SO4","ZnS","Cd(CN)2","Ba(IO3)2","CuSO3","CuI", "Fe(NO3)3", "FeC2O4", "MnCO3", "Mn(OH)3", "SnBr4", "Pb(MnO4)2", "Na4SiO4", "Al(ClO4)3", "Hg(C2H3O2)2", "CsIO3", "Sr(ClO)2", "Ba3(PO4)2", "Be3N2", "Mg(HCO3)2", "Sb(NO3)3", "PCl5", "CBr4", "Bi(OCN)3", "Al(BrO3)3", "Hg3PO4", "Bi2O3", "Sr(HCO3)2", "Cr(IO3)3", "CCl4", "SnCl4", "Ni(BrO4)2", "Cl2O7", "Sb2S3", "SeO2", "Ag2C2O4", "Sn(N3)2", "Zn3P2", "Cu2(SiO4)", "SF6", "Li3As")</description>
+			<type>3</type>
+			<choices>[]</choices>
+		</variable>
+		<variable>
+			<name>sel2</name>
+			<title></title>
+			<description>random_int(0,count(nam_arr)-1)</description>
+			<type>3</type>
+			<choices>null</choices>
+		</variable>
+		<variable>
+			<name>form2</name>
+			<title></title>
+			<description>element(for_arr,sel2)</description>
+			<type>3</type>
+			<choices>null</choices>
+		</variable>
+		<variable>
+			<name>name2</name>
+			<title>Enter the name for the chemical</title>
+			<description>Spelling Matters!</description>
+			<type>2</type>
+			<choices>null</choices>
+		</variable>
+		<intermediate_variable>
+			<name>name2_ans</name>
+			<equation>element(nam_arr,sel2)</equation>
+		</intermediate_variable>
+		<condition>
+			<equation>stringCheck(name2,0,name2_ans)</equation>
+			<result>Incorrect. Try again</result>
+			<points>0</points>
+			<type>0</type>
+		</condition>
+		<condition>
+			<equation>1</equation>
+			<result>Correct! Change values and try another.</result>
+			<points>1</points>
+			<type>1</type>
+		</condition>
+	</question>
+	<question>
+		<type>1</type>
+		<name>Formula Practice</name>
+		<description><p>Without consulting a text or the Internet, write the chemical formula for ##name3##.&nbsp;<span style="font-size: 14.4px;">Practice more by pressing the "Change Problem Values" button.</span><br></p></description>
+		<deferred>0</deferred>
+		<options>{"completionDisplay":true}</options>
+		<extra>
+			<available>false</available>
+			<newValues>true</newValues>
+			<text></text>
+		</extra>
+		<variable>
+			<name>sel3</name>
+			<title></title>
+			<description>random_int(0,count(nam_arr)-1)</description>
+			<type>3</type>
+			<choices>null</choices>
+		</variable>
+		<variable>
+			<name>name3</name>
+			<title></title>
+			<description>element(nam_arr,sel3)</description>
+			<type>3</type>
+			<choices>null</choices>
+		</variable>
+		<variable>
+			<name>form3</name>
+			<title>Enter the correct chemical formula for the name above</title>
+			<description>Format Matters!  You can ignore the phase (and note that all ionic compounds should be neutral).</description>
+			<type>5</type>
+			<choices>null</choices>
+		</variable>
+		<intermediate_variable>
+			<name>form3_ans</name>
+			<equation>element(for_arr,sel3)</equation>
+		</intermediate_variable>
+		<condition>
+			<equation>checkChemicalSymbols(form3,form3_ans)  && checkChemicalCharge(form3,0)</equation>
+			<result>Incorrect. Try again.</result>
+			<points>0</points>
+			<type>0</type>
+		</condition>
+		<condition>
+			<equation>1</equation>
+			<result>Correct! Change the values to practice more!</result>
+			<points>1</points>
+			<type>1</type>
+		</condition>
+	</question>
+</assignment>
